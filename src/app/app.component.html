@@ -3,3 +3,10 @@
 <ul>
   <li *ngFor="let user of users">{{ user.name }}</li>
 </ul>
+
+
+<form action="/users" method="POST">
+  <input type="text" placeholder="name" name="name">
+  <input type="text" placeholder="title" name="quote">
+  <button type="submit">Submit</button>
+</form>

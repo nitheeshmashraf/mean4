@@ -42,4 +42,9 @@ router.get('/users', (req, res) => {
     });
 });
 
+// Get users
+router.post('/users', (req, res) => {
+  console.log('Hellooooooooooooooooo!')
+});
+
 module.exports = router;
