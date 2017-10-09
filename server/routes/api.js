@@ -3,9 +3,12 @@ const router = express.Router();
 const MongoClient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectID;
 
+
+const mlab_db_url='mongodb://nitz:nithz@ds129344.mlab.com:29344/mytasklist_nithz';
+const local_db_url='mongodb://127.0.0.1:27017/mean';
 // Connect
 const connection = (closure) => {
-    return MongoClient.connect('mongodb://127.0.0.1:27017/mean', (err, db) => {
+    return MongoClient.connect(mlab_db_url, (err, db) => {
         if (err) return console.log(err);
 
         closure(db);
@@ -27,13 +30,13 @@ let response = {
 };
 
 // Get users
-router.get('/users', (req, res) => {
+router.get('/tasks', (req, res) => {
     connection((db) => {
-        db.collection('users')
+        db.collection('tasks')
             .find()
             .toArray()
-            .then((users) => {
-                response.data = users;
+            .then((tasks) => {
+                response.data = tasks;
                 res.json(response);
             })
             .catch((err) => {
@@ -42,9 +45,25 @@ router.get('/users', (req, res) => {
     });
 });
 
+
 // Get users
-router.post('/users', (req, res) => {
-  console.log('Hellooooooooooooooooo!')
+router.post('/tasks', (req, res) => {
+ // db.collection('tasks').save(req.body, (err, result) => {
+ //    if (err) return console.log(err)
+
+ //    console.log('saved to database')
+ //    res.redirect('/')
+ //  })
+
+ connection((db) => {
+        db.collection('tasks')
+            .save(req.body,(err, result) => {
+                if (err) return console.log(err)
+
+                console.log('saved to database')
+                res.redirect('/')
+              })
+    });
 });
 
 module.exports = router;

@@ -12,6 +12,12 @@ export class AppComponent {
   
   // Define a users property to hold our user data
   users: Array<any>;
+  SelectedItem:{};
+
+  getItem(Selection){
+    this.SelectedItem=Selection;
+    console.log(this.SelectedItem);
+  }
 
   // Create an instance of the DataService through dependency injection
   constructor(private _dataService: DataService) {

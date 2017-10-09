@@ -19,12 +19,14 @@ app.use('/api', api);
 
 // Send all other requests to the Angular app
 app.get('*', (req, res) => {
+    // console.log(res.json);
     res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
-app.post('/users',(req,res)=>{
+app.post('/api/tasks',(req,res)=>{
 	console.log('Hello user');
 	console.log(req.body);
+
 })
 
 //Set Port
