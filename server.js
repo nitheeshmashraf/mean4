@@ -18,15 +18,13 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/api', api);
 
 // Send all other requests to the Angular app
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
     // console.log(res.json);
     res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
-app.post('/api/tasks',(req,res)=>{
-	console.log('Hello user');
-	console.log(req.body);
-
+app.post('/quotes', (req, res) => {
+  console.log('Hellooooooooooooooooo!')
 })
 
 //Set Port

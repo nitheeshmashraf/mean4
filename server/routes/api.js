@@ -47,7 +47,8 @@ router.get('/tasks', (req, res) => {
 
 
 // Get users
-router.post('/tasks', (req, res) => {
+router.post('/quotes', (req, res) => {
+    console.log("post module");
  // db.collection('tasks').save(req.body, (err, result) => {
  //    if (err) return console.log(err)
 

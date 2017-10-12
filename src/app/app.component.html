@@ -7,12 +7,11 @@ Names:
 
 Tasks:
 <ul>
-  <li *ngFor="let user of users" (ng-click)="getItem(user)">{{ user.title }}, {{ user.isDone }}</li>
+  <li *ngFor="let user of users" >{{ user.title }}, {{ user.isDone }}</li>
 </ul>
 
-<form action="/api/tasks" method="POST">
-  <input type="text" placeholder="name" name="name" ng-model="SelectedItem.name">
-  <input type="text" placeholder="quote" name="quote" ng-model="SelectedItem.quote">
-  <input type="text" placeholder="title" name="title" ng-model="SelectedItem.title">
-  <button type="submit">Submit</button>
+<form action="/quotes" method="POST">
+  <input type="text" placeholder="name" name="name">
+  <input type="text" placeholder="quote" name="quote">
+  <button type="submit" (click)="postform()">Submit</button>
 </form>

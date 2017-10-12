@@ -14,9 +14,11 @@ export class AppComponent {
   users: Array<any>;
   SelectedItem:{};
 
-  getItem(Selection){
-    this.SelectedItem=Selection;
-    console.log(this.SelectedItem);
+  postform(){
+    alert("post test");
+     this._dataService.postUsers()
+        .subscribe(res => this.users = res);
+  
   }
 
   // Create an instance of the DataService through dependency injection

@@ -15,8 +15,8 @@ export class DataService {
       .map(result => this.result = result.json().data);
   }
 
-postUsers() {
-    return this._http.get("/api/tasks")
+  postUsers() {
+    return this._http.post("/api/quotes",this.result)
       .map(result => this.result = result.json().data);
   }
 
